@@ -18,6 +18,6 @@ variable "public_access" {
 
 variable "website" {
   description = "Static website host or redirect configuraton. keys: index_document, host_name, protocol"
-  type        = map(string)
+  type        = any
   default     = {}
 }

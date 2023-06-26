@@ -15,11 +15,11 @@ resource "aws_s3_bucket_website_configuration" "website_configuration" {
   }
 
   dynamic "redirect_all_requests_to" {
-    for_each = try(var.website["redirect_all_requests_to"], [])
+    for_each = try([var.website["redirect"]], [])
 
     content {
       host_name = redirect_all_requests_to.value.host_name
-      protocol  = readirect_all_requests_to.value.protocol
+      protocol  = redirect_all_requests_to.value.protocol
     }
   }
 }
